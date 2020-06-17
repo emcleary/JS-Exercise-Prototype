@@ -124,15 +124,15 @@ console.log(myCar);
 */
 function Baby(name, age, favoriteToy) {
     Person.call(this, name, age);
+    Car.call(this, name, age);
     this.favoriteToy = favoriteToy;
 }
+
+Baby.prototype = Object.create(Person.prototype);
 
 Baby.prototype.play = function() {
     return `Playing with ${this.favoriteToy}`;
 }
-
-Baby.prototype.eat = Person.prototype.eat;
-Baby.prototype.poop = Person.prototype.poop;
 
 const someBaby = new Baby('Barney', 1, 'Atomic Bomb');
 console.log(someBaby.play());
@@ -145,6 +145,7 @@ someBaby.eat('Baby food');
 console.log(someBaby);
 someBaby.poop();
 console.log(someBaby);
+
 
 /* 
   TASK 4
